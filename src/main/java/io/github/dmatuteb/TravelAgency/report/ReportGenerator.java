@@ -9,7 +9,9 @@ import javax.persistence.EntityManager;
 import org.springframework.core.io.InputStreamResource;
 
 import com.itextpdf.text.DocumentException;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ReportGenerator {
 
     private Class<?> reportType;
@@ -27,7 +29,7 @@ public class ReportGenerator {
 
     public InputStreamResource createReport()
             throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
-            NoSuchMethodException, SecurityException, MalformedURLException, DocumentException, IOException {
+            NoSuchMethodException, SecurityException, DocumentException, IOException {
         Report report;
 
         if (this.entityManager != null) {

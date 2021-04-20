@@ -43,6 +43,9 @@ public class AmusementPark {
     @OneToMany(mappedBy = "gameAmusementPark", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Game> amusementParkGames;
 
+    @OneToMany(mappedBy = "employeeAmusementPark", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Employee> employees;
+
     public AmusementPark() {
     }
 

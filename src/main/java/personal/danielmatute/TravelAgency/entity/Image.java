@@ -4,6 +4,7 @@ import org.apache.tomcat.util.codec.binary.Base64;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 public class Image {
@@ -20,6 +21,9 @@ public class Image {
 
     @Basic
     private LocalDate createdOn;
+
+    @OneToMany(mappedBy = "amusementParkImage", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<AmusementPark> amusementParks;
 
     public Image() {
     }

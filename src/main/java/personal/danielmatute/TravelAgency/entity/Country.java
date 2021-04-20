@@ -3,6 +3,7 @@ package personal.danielmatute.TravelAgency.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 public class Country {
@@ -17,6 +18,9 @@ public class Country {
     @Size(max = 50, message = "The name should not be longer than 50 characters")
     @Column(name = "country_name", length = 50, nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "amusementParkCountry", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<AmusementPark> amusementParks;
 
     public Country() {
     }

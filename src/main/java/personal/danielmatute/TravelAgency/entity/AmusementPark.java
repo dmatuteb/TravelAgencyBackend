@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 public class AmusementPark {
@@ -38,6 +39,9 @@ public class AmusementPark {
     @JoinColumn(name = "amusement_park_image_id", referencedColumnName = "image_id", nullable = false)
     @NotNull(message = "The image should not be empty")
     private Image amusementParkImage;
+
+    @OneToMany(mappedBy = "gameAmusementPark", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Game> amusementParkGames;
 
     public AmusementPark() {
     }

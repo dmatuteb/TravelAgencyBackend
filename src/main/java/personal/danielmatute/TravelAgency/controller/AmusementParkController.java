@@ -71,7 +71,7 @@ public class AmusementParkController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteCountry(@PathVariable Long id) {
+    public ResponseEntity<?> deleteAmusementPark(@PathVariable Long id) {
         this.amusementParkRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
